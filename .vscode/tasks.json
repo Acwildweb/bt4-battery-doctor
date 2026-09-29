@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "problemMatcher": [
+    {
+      "name": "bt4-swiftc",
+      "owner": "swiftc",
+      "fileLocation": ["autoDetect", "${workspaceFolder}"],
+      "pattern": {
+        "regexp": "^(.*\\.swift):(\\d+):(\\d+): (error|warning): (.*)$",
+        "file": 1,
+        "line": 2,
+        "column": 3,
+        "severity": 4,
+        "message": 5
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "label": "Costruisci .app universale",
+      "detail": "arm64 + x86_64, icona, bundle e firma ad-hoc",
+      "type": "shell",
+      "command": "./build.sh",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$bt4-swiftc"]
+    },
+    {
+      "label": "Auto-verifica del motore",
+      "detail": "9 casi di diagnosi, esce con codice 1 se un esito non è quello atteso",
+      "type": "shell",
+      "command": "swift run BT4BatteryDoctor --selftest",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": ["$bt4-swiftc"]
+    },
+    {
+      "label": "Compila (debug, veloce)",
+      "type": "shell",
+      "command": "swift build",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": ["$bt4-swiftc"]
+    },
+    {
+      "label": "Costruisci e avvia",
+      "type": "shell",
+      "command": "./build.sh --run",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": ["$bt4-swiftc"]
+    }
+  ]
+}

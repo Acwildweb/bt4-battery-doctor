@@ -1,0 +1,8 @@
+# Artefatti di compilazione SwiftPM
+.build/
+
+# Applicazione impacchettata (rigenerata da ./build.sh)
+dist/
+
+# macOS
+.DS_Store

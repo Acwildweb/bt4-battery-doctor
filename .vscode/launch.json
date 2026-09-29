@@ -1,0 +1,34 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:bt4-battery-doctor}",
+      "name": "Debug BT4BatteryDoctor",
+      "target": "BT4BatteryDoctor",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug BT4BatteryDoctor"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:bt4-battery-doctor}",
+      "name": "Release BT4BatteryDoctor",
+      "target": "BT4BatteryDoctor",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release BT4BatteryDoctor"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": ["--selftest"],
+      "cwd": "${workspaceFolder:bt4-battery-doctor}",
+      "name": "Auto-verifica motore (--selftest)",
+      "target": "BT4BatteryDoctor",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug BT4BatteryDoctor"
+    }
+  ]
+}
